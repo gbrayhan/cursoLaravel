@@ -1,25 +1,24 @@
 @extends('layouts.app')
-    @section('content')
-        <div class="title m-b-md">
-            Administradora Aceso
-        </div>
-        @if ($profesor)
-        <h3>
-           Developer {{ $profesor }}
-        </h3>
-        @endif
-
-        <div class="links">
-            @foreach ($links as $link => $text)
-                <a href="{{ $link }}" title="{{ $text }}">{{ $text }}</a>
-            @endforeach
-
-            {{-- <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://nova.laravel.com">Nova</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a> --}}
-        </div>
-    @endsection
-           
+@section('content')
+<div class="jumbotron text-center">
+  <h1>Distribuidora Aceso</h1>
+  <nav>
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="/" class="nav-link">Acerca de Nosotros</a><li>
+    </ul>
+  </nav>
+</div>
+<div class="row">
+	@forelse($messages as $message)
+		<div class="col-md-6">
+			<img src="{{ $message['image'] }}" alt="" class="img-thumbnail">
+			<p class="card-text">{{ $message['content'] }} <a href="/message/{{ $message['id'] }}"> Ver más </a></p>
+		</div>  
+	@empty
+		<h3>No se encontraron imagenes</h3>
+	@endforelse
+</div>
+    
+@endsection
+       
