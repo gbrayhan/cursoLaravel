@@ -3,33 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class PagesController extends Controller {
 	public function home() {
 		// $profesor=null;
 		$profesor='Alejandro Guerrero';
-		$messages= [
-			[
-				'id' => 1,
-				'content' => 'Este es mi primer Mensaje',
-				'image' => 'http://placeimg.com/600/338/any?1'
-			],
-			[
-				'id' => 2,
-				'content' => 'Este es mi segundo Mensaje',
-				'image' => 'http://placeimg.com/600/338/any?2'
-			],
-			[
-				'id' => 3,
-				'content' => 'Este es mi tercer Mensaje',
-				'image' => 'http://placeimg.com/600/338/any?3'
-			],
-			[
-				'id' => 4,
-				'content' => 'Este es mi cuarto Mensaje',
-				'image' => 'http://placeimg.com/600/338/any?4'
-			],
-		];
+		// $messages= [
+		// 	[
+		// 		'id' => 1,
+		// 		'content' => 'Este es mi primer Mensaje',
+		// 		'image' => 'http://placeimg.com/600/338/any?1'
+		// 	],
+		// 	[
+		// 		'id' => 2,
+		// 		'content' => 'Este es mi segundo Mensaje',
+		// 		'image' => 'http://placeimg.com/600/338/any?2'
+		// 	],
+		// 	[
+		// 		'id' => 3,
+		// 		'content' => 'Este es mi tercer Mensaje',
+		// 		'image' => 'http://placeimg.com/600/338/any?3'
+		// 	],
+		// 	[
+		// 		'id' => 4,
+		// 		'content' => 'Este es mi cuarto Mensaje',
+		// 		'image' => 'http://placeimg.com/600/338/any?4'
+		// 	],
+		// ];
+		$messages = Message::all();
+		// dd($messages); // Se observa que son objetos aunque tambien se pueden usar como array
 
 	  $links = [
 			'https://aceso.mx' => 'Web Aceso',
