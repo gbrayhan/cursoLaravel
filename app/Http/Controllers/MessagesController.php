@@ -17,8 +17,16 @@ class MessagesController extends Controller {
 	}
 
 	public function create(Request $request){
-
-		dd($request->all());
+		// dd($request->all());
+		// Metodo Validate de Laravel 
+		$this->validate($request ,[
+			'message' => ['required','max:50']
+		],
+		[
+			'message.required' => 'Escribe tu Mensaje', 
+			'message.max' => 'El mensaje no puede superar los 50 caracteres'
+		]);
+		return "Llego";
 
 
 	}
