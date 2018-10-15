@@ -22,3 +22,34 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Message::class, function(Faker $faker){
+	return [
+		'content' => $faker->realText(random_int(20,160)), // Texto de alicia en el pais
+		'image' => $faker->imageUrl(600,338)
+	];
+	/*
+	 * En consola indicamos:
+	 * $ php artisan tinker
+	 * 
+	 * luego podemor probar mensaje por mensaje con: 
+	 * $message = factory(App\Message::class)->make()
+	 *
+	 * Si probamos con create en vez de make obtenemos un objeto completo del 
+	 * tipo message:
+	 * $message = factory(App\Message::class)->create()
+	 *
+	 * Podemos buscarlo con:
+	 * App\Message::find(5)
+	 * 
+	 * Si queremos correr multiples factories empleamos los seeds 
+	 * con el comando:
+	 * $ php artisan db:seed
+	 * 
+	 * Para hacer un reajuste usamos:
+	 * $ php artisan migrate:refresh --seed
+	 *
+	 * 
+	 */
+});
+
