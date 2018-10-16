@@ -32,6 +32,12 @@
 	@empty
 		<h3>No se encontraron imagenes</h3>
 	@endforelse
+
+	@if (count($messages))
+		<div class="mt-4 mx-auto">
+			{{ $messages->links() }}
+		</div>
+	@endif
 </div>
     
 @endsection
