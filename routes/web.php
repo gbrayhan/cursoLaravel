@@ -15,9 +15,12 @@ Route::get('/', 'PagesController@home');
 
 Route::get('/about','PagesController@about');
 
-Auth::routes();
+Auth::routes(); //Rutas de Registro en una sola linea
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/message/{message}', 'MessagesController@show');
 
 Route::post('messages/create','MessagesController@create');
+
+Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
