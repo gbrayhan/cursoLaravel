@@ -28,8 +28,8 @@ class AddUsernameAndAvatarToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->droColum('username');
-            $table->droColum('avatar');
+            $table->dropColum('username');
+            $table->dropColum('avatar');
         });
     }
 }
