@@ -26,8 +26,7 @@
 <div class="row">
 	@forelse($messages as $message)
 		<div class="col-md-6">
-			<img src="{{ $message->image }}" alt="" class="img-thumbnail">
-			<p class="card-text">{{ $message->content }} <a href="/message/{{ $message->id }}"> Ver más </a></p>
+			@include('messages.message')
 		</div>  
 	@empty
 		<h3>No se encontraron imagenes</h3>
