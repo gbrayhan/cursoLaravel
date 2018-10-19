@@ -23,4 +23,5 @@ Route::get('/message/{message}', 'MessagesController@show');
 Route::post('messages/create','MessagesController@create')->middleware('auth');
 
 
+Route::get('/{username}','UsersController@show');
 // Route::get('/home', 'HomeController@index')->name('home');

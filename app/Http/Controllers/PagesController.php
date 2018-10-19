@@ -16,7 +16,7 @@ class PagesController extends Controller {
 		// 		'image' => 'http://placeimg.com/600/338/any?1'
 		// 	],...
 		// ];
-		$messages = Message::paginate(10);
+		$messages = Message::latest()->paginate(10);
 		// dd($messages); // Se observa que son objetos aunque tambien se pueden usar como array
 
 	  $links = [

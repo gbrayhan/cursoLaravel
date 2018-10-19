@@ -28,7 +28,10 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Message::class, function(Faker $faker){
 	return [
 		'content' => $faker->realText(random_int(20,160)), // Texto de alicia en el pais
-		'image' => $faker->imageUrl(600,338)
+		'image' => $faker->imageUrl(600,338),
+		'created_at' => $faker->dateTimeThisDecade,
+		'updated_at' => $faker->dateTimeThisDecade,
+
 	];
 	/*
 	 * En consola indicamos:
