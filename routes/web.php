@@ -10,18 +10,21 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(); //Rutas de Registro en una sola linea
 
 Route::get('/', 'PagesController@home');
 
 Route::get('/about','PagesController@about');
 
-Auth::routes(); //Rutas de Registro en una sola linea
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/message/{message}', 'MessagesController@show');
 
 Route::post('messages/create','MessagesController@create')->middleware('auth');
 
+Route::get('/{username}/follows','UsersController@follows'); // A quien sigue el usuario
+Route::post('/{username}/follow', 'UsersController@follow');
 
 Route::get('/{username}','UsersController@show');
 // Route::get('/home', 'HomeController@index')->name('home');
