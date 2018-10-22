@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="jumbotron text-center">
-  <h1>Distribuidora Aceso</h1>
+  <h1>Ambiente de Pruebas CPA</h1>
   <nav>
     <ul class="nav nav-pills">
       <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
@@ -10,7 +10,7 @@
   </nav>
 </div>
 <div class="row">
-	<form action="messages/create" method="POST">
+	<form action="/messages/create" method="POST">
 		{{ csrf_field() }}
 		<div class="form-group " >
 			<input  type="text" name="message" class="form-control @if($errors->has('message')) is-invalid @endif" placeholder="¿Qué estas pensado?">
