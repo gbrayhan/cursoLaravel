@@ -63,6 +63,7 @@
                             </div>
                         </div>
                     </form>
+                    <a class="btn btn-primary" href="/auth/facebook">Login con Facebook</a>
                 </div>
             </div>
         </div>

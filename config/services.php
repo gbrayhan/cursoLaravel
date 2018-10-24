@@ -43,7 +43,7 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_KEY'),
-        'redirect' => 'https://bd0dbc44.ngrok.io/auth/facebook/callback',
+        'redirect' => 'https://6c2861f5.ngrok.io/auth/facebook/callback',
     ],
 
 
