@@ -12,13 +12,20 @@
 
 
 	@if (Auth::check())
+		@if (Gate::allows('dms', $user))
+			<form action="/{{ $user->username }}/dms" method="post">
+				<input type="text" name="message" class="form-control m-2">
+				<button type="submit" class="btn btn-success m-2">Enviar DM</button>
+			</form>
+		@endif
+		
 		@if (Auth::user()->isFollowing($user))
 			<form action="/{{ $user->username }}/unfollow" method="POST">
 				{{ csrf_field() }}
 				@if(session('success'))
 					<span class="text-success">{{ session('success') }}</span>
 				@endif
-				<button class="btn btn-danger">Unfollow</button>
+				<button class="btn btn-danger m-2">Unfollow</button>
 			</form>
 		
 		@else
@@ -27,7 +34,7 @@
 				@if(session('success'))
 					<span class="text-success">{{ session('success') }}</span>
 				@endif
-				<button class="btn btn-primary">Follow</button>
+				<button class="btn btn-primary m-2">Follow</button>
 			</form>
 
 		@endif
