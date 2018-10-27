@@ -19,19 +19,21 @@ Route::post('/auth/facebook/register', 'SocialAuthController@register');
 Route::get('/', 'PagesController@home');
 
 Route::get('/about','PagesController@about');
-
-
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/message/{message}', 'MessagesController@show');
 
-Route::post('/messages/create','MessagesController@create')->middleware('auth');
+
+Route::group(['middleware' => 'auth'], function() {
+	Route::post('/{username}/dms','UsersController@sendPrivateMessage');
+	Route::post('/messages/create','MessagesController@create');
+	Route::post('/{username}/follow', 'UsersController@follow');
+	Route::post('/{username}/unfollow', 'UsersController@unfollow');
+	Route::get('/conversations/{conversation}', 'UsersController@showConversation');
+
+});
+Route::get('/message/{message}', 'MessagesController@show');
 
 Route::get('/{username}/follows','UsersController@follows'); // A quien sigue el usuario
 Route::get('/{username}/followers','UsersController@followers');
-
-Route::post('/{username}/follow', 'UsersController@follow');
-Route::post('/{username}/unfollow', 'UsersController@unfollow');
 
 Route::get('/{username}','UsersController@show');
 // Route::get('/home', 'HomeController@index')->name('home');
