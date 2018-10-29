@@ -83,7 +83,11 @@ class UsersController extends Controller {
 
     public function showConversation(Conversation $conversation) { //laravel recibiendo el ID lo convierte a objeto
         $conversation->load('users','privateMessages');
-        dd($conversation);
+        // dd($conversation);
+        return view('users.conversation',[
+            'conversation' => $conversation,
+            'user' => auth()->user(),
+        ]);
 
 
     }

@@ -12,6 +12,6 @@ class Conversation extends Model {
     }
 
     public function privateMessages() {
-    	return $this->hasMany(PrivateMessage::class);
+    	return $this->hasMany(PrivateMessage::class); //tiene muchos mensajes rivados
     }
 }
