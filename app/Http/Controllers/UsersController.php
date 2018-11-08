@@ -62,12 +62,9 @@ class UsersController extends Controller {
 
         $me = $request->user(); // Lo obtenemos del Request 
         $message = $request->input('message');
+        
+        $conversation = Conversation::between($me, $user); 
 
-
-        $conversation = Conversation::create();
-
-        $conversation->users()->attach($me);
-        $conversation->users()->attach($user);
 
 
         $privateMessage = PrivateMessage::create([
