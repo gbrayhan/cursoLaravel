@@ -21,6 +21,7 @@ Route::get('/', 'PagesController@home');
 Route::get('/about','PagesController@about');
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/messages','MessagesController@search');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::post('/{username}/dms','UsersController@sendPrivateMessage');
