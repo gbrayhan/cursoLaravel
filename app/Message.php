@@ -16,4 +16,10 @@ class Message extends Model
 		return $this->belongsTo(User::class);
 
 	}
+	public function getImageAttribute($image) {
+		if (!$image || starts_with($image, 'http')) {
+			return $image;
+		}
+		return \Storage::disk('public')->url($image);
+	}
 }
