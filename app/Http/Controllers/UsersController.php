@@ -10,10 +10,12 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller {
 	private function findByUsername($username){
-		return User::where('username',$username)->first();	
+		return User::where('username',$username)->firstOrFail(); // Aroja una excepcion	
     }
 
     public function show($username){
+        throw new \Exception("Simulando un Error.");
+        
     	$user = $this->findByUsername($username);
 
     	return view('users.show',[
