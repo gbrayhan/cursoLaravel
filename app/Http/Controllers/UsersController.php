@@ -14,7 +14,7 @@ class UsersController extends Controller {
     }
 
     public function show($username){
-        throw new \Exception("Simulando un Error.");
+        // throw new \Exception("Simulando un Error.");
         
     	$user = $this->findByUsername($username);
 
