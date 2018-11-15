@@ -25,4 +25,10 @@ class Message extends Model
 		}
 		return \Storage::disk('public')->url($image);
 	}
+
+	public function toSearchableArray() { // funcioon ya definida en Laravel\Scout
+		$this->load('user');
+
+		return $this->toArray();
+	}
 }
