@@ -32,6 +32,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 });
 Route::get('/message/{message}', 'MessagesController@show');
+Route::get('/api/messages/{message}/responses','MessagesController@responses');
 
 Route::get('/{username}/follows','UsersController@follows'); // A quien sigue el usuario
 Route::get('/{username}/followers','UsersController@followers');
