@@ -5,4 +5,6 @@
 
 @include('messages.message')
 
+<responses :message="{{ $message->id }}"></responses>
+
 @endsection
