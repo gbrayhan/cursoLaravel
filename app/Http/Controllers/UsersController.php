@@ -94,5 +94,9 @@ class UsersController extends Controller {
 
     }
 
+    public function notifications(Request $request) {
+        return $request->user()->notifications;
+    }
+
 
 }
